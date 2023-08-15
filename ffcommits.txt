@@ -1,0 +1,1769 @@
+commit e853770f4843e47cd5e07330140b5bd1cdfc9f11
+Merge: 69c845b 8ab98c2
+Author: str4d <thestr4d@gmail.com>
+Date:   Thu Dec 29 09:07:21 2022 +0000
+
+    Merge pull request #102 from Daniel-Aaron-Bloom/readme
+    
+    chore: readme fix
+
+commit 8ab98c2ca8322ebbf66b586764ea83c12d27b93e
+Author: Daniel Bloom <7810950-Daniel.Aaron.Bloom@users.noreply.gitlab.com>
+Date:   Tue Dec 27 13:01:14 2022 -0800
+
+    chore: readme fix
+
+commit 69c845b4052c65be5c4479176c2756533271c595
+Merge: c555625 abf23a7
+Author: str4d <thestr4d@gmail.com>
+Date:   Tue Dec 6 00:36:11 2022 +0000
+
+    Merge pull request #99 from zkcrypto/release-0.13.0
+    
+    Release 0.13.0
+
+commit abf23a77999aa737a5214e49a35815c67f76de40
+Author: Jack Grigg <thestr4d@gmail.com>
+Date:   Mon Dec 5 22:02:29 2022 +0000
+
+    Release 0.13.0
+
+commit c555625ab4e6e26560ec5323fd99fef6eba18365
+Merge: c070ffb 286e908
+Author: str4d <thestr4d@gmail.com>
+Date:   Tue Nov 29 18:14:48 2022 +0000
+
+    Merge pull request #98 from zkcrypto/more-trait-changes
+    
+    More trait changes
+
+commit 286e9081229ca24ab546261848884a90e4860a35
+Author: str4d <thestr4d@gmail.com>
+Date:   Fri Nov 25 20:58:44 2022 +0000
+
+    ff_derive: Revert `to_mont` usage for R^2
+    
+    R^2 is a specific constant, not R in Montgomery form.
+
+commit e49e069370125da070f26a2dfbac2ff77ed7d8dd
+Author: str4d <thestr4d@gmail.com>
+Date:   Fri Nov 25 20:58:05 2022 +0000
+
+    Fix bugs in documentation changes
+    
+    Co-authored-by: Daira Hopwood <daira@jacaranda.org>
+
+commit 054a4d2daf9a9540d4c436fa51f0222e997ad15c
+Author: Jack Grigg <thestr4d@gmail.com>
+Date:   Thu Nov 24 04:42:57 2022 +0000
+
+    Add `WithSmallOrderMulGroup` trait
+
+commit 6e7a54be27cd853b7f355b00d1df85c4d069637f
+Author: Jack Grigg <thestr4d@gmail.com>
+Date:   Thu Nov 24 04:36:25 2022 +0000
+
+    Add `FromUniformBytes` trait
+
+commit c0805cd5d46e3b048ac11383553885b6eaaf0a4f
+Author: Jack Grigg <thestr4d@gmail.com>
+Date:   Thu Nov 24 04:26:46 2022 +0000
+
+    Add `PrimeField::MODULUS`
+    
+    This is an intentionally-opaque string format for debugging purposes.
+
+commit feb2c0c2806a5a56c5e306d17466ca2743870eed
+Author: Jack Grigg <thestr4d@gmail.com>
+Date:   Thu Nov 24 04:21:12 2022 +0000
+
+    Add `PrimeField::from_u128`
+
+commit 93537e263e74cabd78301b0cdb3a246d361d1a27
+Author: Jack Grigg <thestr4d@gmail.com>
+Date:   Thu Nov 24 03:37:31 2022 +0000
+
+    Add `PrimeField::{ROOT_OF_UNITY_INV, DELTA}`
+
+commit 9c30ad3037a998d982e233042b0012db58bfdf2b
+Author: Jack Grigg <thestr4d@gmail.com>
+Date:   Thu Nov 24 02:59:38 2022 +0000
+
+    Add `PrimeField::TWO_INV` associated constant
+    
+    This is a useful constant in a variety of scenarios, and providing it
+    saves an inversion. This also reinforces the intention that `PrimeField`
+    represents a non-binary field with odd prime order (which is now clearly
+    documented).
+
+commit c070ffbaea8cb17e57f817a91ed0e364ff679b7c
+Merge: 1eddf54 3c7ceee
+Author: str4d <thestr4d@gmail.com>
+Date:   Sat Nov 19 11:54:05 2022 +0000
+
+    Merge pull request #97 from zkcrypto/field-sum-prod
+    
+    Add `core::iter::{Sum, Product}` bounds on `Field`
+
+commit 3c7ceee373b327635c9dc85b958a2bee5d732a41
+Author: Jack Grigg <thestr4d@gmail.com>
+Date:   Sat Nov 19 00:24:20 2022 +0000
+
+    Add `core::iter::{Sum, Product}` bounds on `Field`
+    
+    Closes zkcrypto/ff#95.
+
+commit c461a90cb63c4828f9b08adce3a03c7129ce0a53
+Author: Jack Grigg <thestr4d@gmail.com>
+Date:   Sat Nov 19 00:09:04 2022 +0000
+
+    Clean up ordering of `Field` bounds
+
+commit 1eddf54cd10b517336c0a5931f911315df2ee676
+Merge: 9a844a7 6bf93ee
+Author: str4d <thestr4d@gmail.com>
+Date:   Wed Nov 2 20:42:09 2022 +0000
+
+    Merge pull request #94 from zkcrypto/trait-constants
+    
+    Add associated constants of type `Self` to `Field` and `PrimeField`
+
+commit 6bf93ee5c532506e1b3aa8a10e867b53379707b3
+Author: Jack Grigg <thestr4d@gmail.com>
+Date:   Fri Oct 28 12:03:46 2022 +0000
+
+    Use associated constants of type `Self` in `Field` and `PrimeField`
+    
+    We now require that the type implementing `Field`, and its particular
+    values for these constants, can be constructed in a const context. Once
+    upon a time this might have been onerous, but it should now be a
+    reasonable requirement given our MSRV of 1.56.0.
+    
+    Closes zkcrypto/ff#87.
+
+commit 9a844a72d30ea9f859cd46dcc2237a1ae3277ddc
+Merge: a35b5eb cc08c5e
+Author: ebfull <ewillbefull@gmail.com>
+Date:   Wed Nov 2 12:51:09 2022 -0600
+
+    Merge pull request #93 from zkcrypto/field-trait-changes
+    
+    Breaking additions to the `Field` trait
+
+commit cc08c5ee678e3b73651f48846cd305efe2f4a03f
+Author: Jack Grigg <thestr4d@gmail.com>
+Date:   Wed Nov 2 18:40:30 2022 +0000
+
+    Document that `Field::{sqrt, sqrt_alt}` provided impls use `sqrt_ratio`
+    
+    This makes the potential for a cycle clear (if the `Field` implementor
+    uses `sqrt` to implement `sqrt_ratio`).
+
+commit 58741b764124d3b428b073ac04a876393ab197b9
+Author: Jack Grigg <thestr4d@gmail.com>
+Date:   Fri Oct 28 10:05:28 2022 +0000
+
+    Add `ff::Field::{sqrt_ratio, sqrt_alt}`
+    
+    We also provide helper methods for implementing the square root trait
+    methods.
+    
+    Ported from zcash/pasta_curves@db8305723de852a5222a348bc3eb517035dc4c6b.
+
+commit a35b5eb59b2026e1442b8a19dae08d4217ac23ed
+Merge: 7653f34 b98ca7f
+Author: str4d <thestr4d@gmail.com>
+Date:   Fri Oct 28 21:46:43 2022 +0100
+
+    Merge pull request #92 from zkcrypto/release-0.12.1
+    
+    Release 0.12.1
+
+commit b97576cfb98f5736f5ec68872068c613c6058efc
+Author: Jack Grigg <thestr4d@gmail.com>
+Date:   Fri Oct 28 09:56:45 2022 +0000
+
+    Add `ff::Field::pow`
+    
+    Ported from zcash/pasta_curves@db8305723de852a5222a348bc3eb517035dc4c6b.
+
+commit b98ca7f74ee761bb404ce8f3b297f1a244071f4a
+Author: Jack Grigg <thestr4d@gmail.com>
+Date:   Fri Oct 28 08:57:28 2022 +0000
+
+    Release 0.12.1
+
+commit 7653f345b1296d795ab5cb159bf0a6bd83ae2748
+Merge: 9ea208d 732b862
+Author: str4d <thestr4d@gmail.com>
+Date:   Thu Sep 15 12:53:05 2022 +0100
+
+    Merge pull request #88 from GaloisInc/checked_shr
+    
+    Use `checked_shr` instead of `>>` in `Field::random`
+
+commit 732b862b63cabbb14297a84fd9a99816f8d7c5ac
+Author: Alex J. Malozemoff <amaloz@galois.com>
+Date:   Tue Sep 13 13:33:55 2022 -0700
+
+    add test case
+
+commit 22bc4997e3d6cecb981d1b79518644246bae1612
+Author: Alex J. Malozemoff <amaloz@galois.com>
+Date:   Tue Sep 13 13:28:10 2022 -0700
+
+    Update ff_derive/src/lib.rs
+    
+    Co-authored-by: str4d <thestr4d@gmail.com>
+
+commit 9ea208df5c272bf473d084a5c5a943a84b65548c
+Merge: 9b9a8d9 6a1c1e9
+Author: str4d <thestr4d@gmail.com>
+Date:   Wed Sep 7 02:11:25 2022 +0100
+
+    Merge pull request #83 from eqlabs/allow_clippy_on_mont_reduce
+    
+    chore(derive): allow too_many_args at mont_reduce
+
+commit bb3799848b28875990f7626732ecbe257c952e9e
+Author: Alex J. Malozemoff <amaloz@galois.com>
+Date:   Tue Aug 23 13:45:28 2022 -0700
+
+    Use `checked_shr` instead of `>>` in `Field::random`
+    
+    In some edge cases, `REPR_SHAVE_BITS` could be 64, causing an overflow
+    if we use `>>`. So use `checked_shr` instead.
+
+commit 6a1c1e902bcfa6a9d86b555d62b06e8d3d0049df
+Author: Joonas Koivunen <joonas@equilibrium.co>
+Date:   Thu May 5 11:43:01 2022 +0300
+
+    chore(derive): allow too_many_args at mont_reduce
+    
+    with 4 limb field element this comes out already above the clippy
+    default threshold in 1.60 which is 7.
+    
+    Co-authored-by: Mirko von Leipzig <mirko@equilibrium.co>
+
+commit 9b9a8d9c363ecbf7bb4c79998aaed32c1f8ce027
+Merge: 6e92161 c9d1b5f
+Author: ebfull <ewillbefull@gmail.com>
+Date:   Wed May 4 16:15:05 2022 -0600
+
+    Merge pull request #82 from zkcrypto/release-0.12.0
+    
+    Release 0.12.0
+
+commit c9d1b5f6aa9810b7a2034d7ec07b5b970812a8b3
+Author: Sean Bowe <ewillbefull@gmail.com>
+Date:   Wed May 4 16:02:22 2022 -0600
+
+    Release 0.12.0
+
+commit 6e921616d662dd6fb8ebaa949fbc4b621b4a0c6f
+Merge: ef0b3c8 5ab9ec6
+Author: ebfull <ewillbefull@gmail.com>
+Date:   Wed May 4 12:39:07 2022 -0600
+
+    Merge pull request #73 from eqlabs/update_bitvec
+    
+    Upgrade bitvec
+
+commit ef0b3c8045228aae7847dd31ae02bc46584ce898
+Merge: dbffa68 e98bedb
+Author: ebfull <ewillbefull@gmail.com>
+Date:   Wed May 4 12:37:05 2022 -0600
+
+    Merge pull request #81 from zkcrypto/release-0.11.1
+    
+    Release 0.11.1 of `ff` and `ff_derive` crates
+
+commit e98bedb0fc9c12c8abc1f05cafbc1765dda92b01
+Author: Sean Bowe <ewillbefull@gmail.com>
+Date:   Wed May 4 12:31:29 2022 -0600
+
+    Release 0.11.1 of `ff` and `ff_derive` crates.
+
+commit 5ab9ec67b32422cbf4f6d76a5ac0dcceb5e7cec2
+Author: Joonas Koivunen <joonas@equilibrium.co>
+Date:   Thu Apr 28 13:33:36 2022 +0300
+
+    doc: bump msrv on README as well
+
+commit 629d562ed898679ba309ddac664f54400e91385a
+Author: Joonas Koivunen <joonas@equilibrium.co>
+Date:   Thu Jan 27 12:28:38 2022 +0200
+
+    ci: run rustdoc in 1.56.0 as well
+
+commit 25a4a16474c33acc41b06112caca67f69eb53f4c
+Author: Joonas Koivunen <joonas@equilibrium.co>
+Date:   Thu Jan 27 12:20:56 2022 +0200
+
+    chore: upgrade to bitvec = 1
+
+commit 110a3bdaa86f313fe2300c62698ef61da12fde4f
+Author: Joonas Koivunen <joonas@equilibrium.co>
+Date:   Thu Jan 27 12:20:20 2022 +0200
+
+    chore: bump msrv to 1.56.0 for bitvec = 1
+    
+    1.56.0 is msrv of bitvec = 1.
+
+commit dbffa682b21085928e5c93f310e365edd03b76e1
+Merge: dcd0219 f17262d
+Author: ebfull <ewillbefull@gmail.com>
+Date:   Wed Apr 27 13:16:40 2022 -0600
+
+    Merge pull request #72 from eqlabs/fix_bitvec_dep_leaking
+    
+    Fix bitvec dep leaking
+
+commit f17262dd1dbcdad516c8e8bd83656eee9f8892e3
+Author: Joonas Koivunen <joonas@equilibrium.co>
+Date:   Thu Jan 27 12:01:45 2022 +0200
+
+    ci: run rustdoc on 1.51.0 as well
+    
+    intra links stabilized in 1.48.0 so no need to run nightly for them.
+    
+    additionally the `broken_intra_doc_links` has now changed to
+    `rustdoc::broken_intra_doc_links` however 1.51 doesn't know of that.
+
+commit 84210b106bd8b6a37f3c22ebad151538d9ed6d65
+Author: Joonas Koivunen <joonas@equilibrium.co>
+Date:   Thu Jan 27 11:29:08 2022 +0200
+
+    fix: test part requires alloc feature
+
+commit fb2b2469a15810be001af9d2b631f15dff31b1e8
+Author: Joonas Koivunen <joonas@equilibrium.co>
+Date:   Thu Jan 27 11:51:12 2022 +0200
+
+    refactor: prettify conditional code with cfg_if
+
+commit 5a53eb5aa9db2b97b0642ca1b40846ed59dfa3fa
+Author: Joonas Koivunen <joonas@equilibrium.co>
+Date:   Thu Jan 27 11:28:47 2022 +0200
+
+    fix: feature gate PrimeFieldBits impl on bits
+    
+    This means that without using the bits feature on "ff" you will be left
+    out. It's however preferable to running to issues with bitvec dependency
+    conflicts, or maybe it's not needed at all.
+    
+    Co-authored-by: Mirko von Leipzig <mirko@equilibrium.co>
+
+commit c83fb3ed036a5adc032ed576619765cfcece94eb
+Author: Joonas Koivunen <joonas@equilibrium.co>
+Date:   Thu Jan 27 09:47:19 2022 +0200
+
+    fix: intro ff/derive_bits to enable bits on derive
+    
+    this instead of earlier attempt of having ff/bits indirectly enable ff_derive.
+    
+    Co-authored-by: str4d <thestr4d@gmail.com>
+
+commit 48afca5470e28b33cb7d31b0ea66c1420609b18f
+Author: Joonas Koivunen <joonas@equilibrium.co>
+Date:   Thu Jan 27 09:49:08 2022 +0200
+
+    test: reproduce issue on ci
+
+commit dcd0219d5187e28c8401a2aacc5cbc8a14bfa661
+Merge: e9eb586 b3041c1
+Author: str4d <thestr4d@gmail.com>
+Date:   Tue Apr 26 08:04:27 2022 +0200
+
+    Merge pull request #76 from kwantam/main
+    
+    fix derive-inside-macro
+
+commit b3041c177b9ae28095c9ce8347600212252abc83
+Author: kwantam <kwantam@gmail.com>
+Date:   Thu Mar 10 13:55:36 2022 -0500
+
+    fix derive-inside-macro
+    
+    The `syn` crate differentiates between `[u64; 4]` and `[u64; $limbs]` inside
+    a macro, previously only the former case was handled. This commit fixes.
+    
+    Also, adding the "full" feature to syn in the ff_derive Cargo.toml is needed
+    in order to run cargo check on this crate.
+
+commit e9eb586251677081ca54537f226c35994951cc02
+Merge: 9ba3f60 99f3851
+Author: ebfull <ewillbefull@gmail.com>
+Date:   Thu Sep 2 09:06:01 2021 -0600
+
+    Merge pull request #66 from zkcrypto/release-0.11
+    
+    ff 0.11.0
+
+commit 99f3851a68fc368e78eef418446ea2ac9740234a
+Author: str4d <thestr4d@gmail.com>
+Date:   Thu Sep 2 13:42:58 2021 +0100
+
+    Update release date
+
+commit a01ddd8af9a6e2b7544e4051a193db1645455fef
+Author: Jack Grigg <thestr4d@gmail.com>
+Date:   Wed Sep 1 23:34:28 2021 +0100
+
+    ff 0.11.0
+
+commit 9ba3f603c2ec668effa813bc7c058b3b14090c33
+Merge: 6a8392c 0c657f3
+Author: str4d <thestr4d@gmail.com>
+Date:   Wed Sep 1 22:41:53 2021 +0100
+
+    Merge pull request #65 from zkcrypto/64-constant-time
+    
+    Enable constant-time usage of trait methods
+
+commit 0c657f30f5e34af2d31f200a79288d0719bee484
+Author: str4d <thestr4d@gmail.com>
+Date:   Wed Sep 1 22:26:44 2021 +0100
+
+    Make `Field::is_zero` a provided method
+
+commit 5564831393fe8f183a53ae3e1403c45af5fb6d12
+Author: Jack Grigg <thestr4d@gmail.com>
+Date:   Mon Aug 30 22:37:23 2021 +0100
+
+    Place `adc, mac, sbb` impls behind `derive` feature flag
+    
+    With the feature flag disabled, the impls are not publicly exposed, so
+    this was causing "unused code" lint warnings.
+
+commit 2567bc65520966507e2e79a09fd54b3e1b30869f
+Author: Jack Grigg <thestr4d@gmail.com>
+Date:   Mon Aug 30 21:22:56 2021 +0100
+
+    Enable constant-time usage of trait methods
+    
+    Trait methods that were previously defined in terms of variable-time
+    primitives like `bool` and `Option` have either been altered to use
+    `subtle::Choice` and `subtle::CtOption`, or renamed to `*_vartime` to
+    make their non-constant-time nature explicit. Some methods have been
+    duplicated to enable both constant-time and non-constant-time usage.
+    
+    `ff_derive` still generates non-constant-time logic internally, so the
+    crate-level disclaimer remains.
+    
+    Closes zkcrypto/ff#64.
+
+commit 6a315e9f1484388eeecc08badf9640e44d4bc5ce
+Author: Jack Grigg <thestr4d@gmail.com>
+Date:   Mon Aug 30 21:06:51 2021 +0100
+
+    Constant-time const impls for `adc, mac, sbb`
+
+commit 6a8392cb9791f8a26fb6e2071a79691b16e19676
+Author: Jack Grigg <thestr4d@gmail.com>
+Date:   Mon Aug 30 19:56:40 2021 +0100
+
+    Add `ff::derive` module with dependencies of `PrimeField` derive macro
+    
+    - `ff::{adc, mac_with_carry, sbb}` have been moved into this module, and
+      are no longer part of the default API.
+    - The `PrimeField` derive macro no longer requires the user to specify
+      additional dependencies.
+    
+    Closes zkcrypto/ff#47.
+
+commit 1d2d8a394d1a257bac91b0ebcb2e1ecdea02f1f8
+Merge: 9fe1a54 dc4cffd
+Author: str4d <thestr4d@gmail.com>
+Date:   Mon Aug 30 16:19:02 2021 +0100
+
+    Merge pull request #63 from zkcrypto/extra-bounds
+    
+    Extra bounds
+
+commit dc4cffdf94b5311f32b76ed59d70d9b11a63f9a3
+Author: Jack Grigg <thestr4d@gmail.com>
+Date:   Wed Aug 25 12:55:09 2021 +0100
+
+    Add `PrimeField::Repr: 'static` bound
+    
+    This ensures there are no internal references, and that the receiver
+    can hold onto the type as long as they like.
+
+commit 2cdb574a0dd658b66388233eea61c1905f42f37d
+Author: Jack Grigg <thestr4d@gmail.com>
+Date:   Wed Aug 18 23:15:49 2021 +0100
+
+    Add `PrimeField::Repr: Copy + Send + Sync` bounds
+    
+    Once `const_evaluatable_checked` lands, `PrimeField::Repr` will be
+    replaced by `[u8; PrimeField::ReprLen]`, which will satisfy these
+    bounds.
+
+commit c3f8430901bf103fc23ff32416977e62d263d6ee
+Author: Jack Grigg <thestr4d@gmail.com>
+Date:   Wed Aug 18 23:14:16 2021 +0100
+
+    Add `Field: ConstantTimeEq` bound
+    
+    Closes zkcrypto/ff#62.
+
+commit 9fe1a5462e051130c5c55c6478b54a4aa54c7675
+Merge: 950ba8c bba47eb
+Author: str4d <thestr4d@gmail.com>
+Date:   Wed Aug 11 20:22:10 2021 +0100
+
+    Merge pull request #61 from zkcrypto/batch-inversion
+    
+    Add traits and structs for batch inversion using Montgomery's trick
+
+commit bba47ebadcc575d17f27bf6fc20e411cf9600a5c
+Author: Jack Grigg <thestr4d@gmail.com>
+Date:   Wed Aug 11 20:19:17 2021 +0100
+
+    Release 0.10.1
+
+commit ddb1287b7d235c4bd599d43b9b5aacd532a35d52
+Author: Jack Grigg <thestr4d@gmail.com>
+Date:   Wed Aug 11 12:50:14 2021 +0100
+
+    Add traits and structs for batch inversion using Montgomery's trick
+
+commit 950ba8cadaf79c33320d623e258b3e5a3c1a8c6b
+Merge: ea80aa5 ce04e30
+Author: ebfull <ewillbefull@gmail.com>
+Date:   Tue Jun 1 15:51:36 2021 -0600
+
+    Merge pull request #59 from zkcrypto/release-0.10
+    
+    Release 0.10.0
+
+commit ce04e30ac39ce35a91aa2edd384aafd6330efa27
+Author: Sean Bowe <ewillbefull@gmail.com>
+Date:   Tue Jun 1 15:47:02 2021 -0600
+
+    Release 0.10.0
+
+commit ea80aa5218819060e86a381fc3a1833816b8bc1d
+Merge: 2a83abc 0f7a272
+Author: ebfull <ewillbefull@gmail.com>
+Date:   Thu May 20 09:08:52 2021 -0600
+
+    Merge pull request #56 from zkcrypto/fix-small-moduli
+    
+    ff_derive: Fix small moduli
+
+commit 2a83abc4c950f6b5f09be88e2a09349f20ab8085
+Merge: b9504ea f0112c5
+Author: str4d <thestr4d@gmail.com>
+Date:   Thu May 20 11:45:35 2021 +0100
+
+    Merge pull request #57 from zkcrypto/remove-unused-imports
+    
+    Remove unused imports
+
+commit f0112c5716c15bc015855c397aa8995838fec880
+Author: Jack Grigg <thestr4d@gmail.com>
+Date:   Thu May 20 11:25:28 2021 +0100
+
+    Remove unused imports
+
+commit 0f7a27254c34d6832877b755e6168b1f65ce925d
+Author: Jack Grigg <thestr4d@gmail.com>
+Date:   Thu May 20 11:17:24 2021 +0100
+
+    Add changelog entry for small moduli fix
+
+commit a958c61a3c2cfdd0412fc458350f3ed180fae492
+Author: Jack Grigg <thestr4d@gmail.com>
+Date:   Thu May 20 11:07:35 2021 +0100
+
+    cargo fmt
+
+commit df4b60a6a356b39e9debff0e9ff91229c9a88edf
+Author: Jack Grigg <thestr4d@gmail.com>
+Date:   Thu May 20 11:06:48 2021 +0100
+
+    ff_derive: Fix sqr_impl for limbs == 1
+    
+    Closes zkcrypto/ff#12.
+
+commit b36494c769d57dc77894328e3754f35d05c0ba33
+Author: Jack Grigg <thestr4d@gmail.com>
+Date:   Thu May 20 11:02:26 2021 +0100
+
+    ff_derive: Fix panics for Fermat primes
+    
+    Closes zkcrypto/ff#44.
+
+commit b9504eae0bb0f44ac8e19d6250f92d67e8c863fa
+Merge: 8f8ed51 87f8931
+Author: str4d <thestr4d@gmail.com>
+Date:   Thu May 20 11:08:17 2021 +0100
+
+    Merge pull request #55 from zkcrypto/changelog
+    
+    Add a changelog
+
+commit 87f893181bf84f7c5a98c7090c840adcdb20da3e
+Author: Jack Grigg <thestr4d@gmail.com>
+Date:   Thu May 20 10:51:58 2021 +0100
+
+    Add rust-toolchain file and document MSRV in README
+
+commit 41c66fec57bd45d81839b870a54ad40443157ca5
+Author: Jack Grigg <thestr4d@gmail.com>
+Date:   Thu May 20 10:32:15 2021 +0100
+
+    Add a changelog
+    
+    I added back-changes from the 0.8.0 and 0.9.0 releases.
+
+commit 8f8ed51b206ad711559c4187c86092d803a964e1
+Merge: e9b51c4 0c46ffc
+Author: str4d <thestr4d@gmail.com>
+Date:   Thu May 20 10:05:17 2021 +0100
+
+    Merge pull request #54 from nuttycom/bitvec-0.22
+    
+    Update to bitvec 0.22
+
+commit 0c46ffc684583a8a478c115161d0c6b41b37aa94
+Author: Kris Nuttycombe <kris@electriccoin.co>
+Date:   Mon Apr 5 17:23:32 2021 -0600
+
+    Update to bitvec 0.22.1
+
+commit e9b51c4a7f154fafacde70e63f43807ce261310d
+Merge: d856fd0 90ed24c
+Author: str4d <thestr4d@gmail.com>
+Date:   Sun Mar 14 06:44:37 2021 +1300
+
+    Merge pull request #42 from tarcieri/prime-field-bits
+    
+    Add `bits` feature; factor out PrimeFieldBits
+
+commit 90ed24cf46e37ebcf1305094e8ecc3afb10bc41d
+Author: Tony Arcieri <bascule@gmail.com>
+Date:   Wed Sep 9 01:25:45 2020 -0700
+
+    Add `bits` feature; factor out PrimeFieldBits
+    
+    Makes `bitvec` an optional dependency by factoring the types and methods
+    which depend on it into their own trait.
+
+commit d856fd09f3b6910db93776523912c7c7d9cad83a
+Merge: dc303be b13c0e3
+Author: str4d <thestr4d@gmail.com>
+Date:   Sat Mar 13 06:09:51 2021 +1300
+
+    Merge pull request #53 from dignifiedquire/patch-1
+    
+    update Cargo.toml urls to zkcrypto
+
+commit b13c0e30123ee10017ca87cf5253dc4f9d54aa91
+Author: Friedel Ziegelmayer <me@dignifiedquire.com>
+Date:   Tue Mar 9 15:53:37 2021 +0100
+
+    update Cargo.toml urls for ff-derive
+
+commit dc5dd8cc5996b594ffa50b5ec1599ccbb7608e58
+Author: Friedel Ziegelmayer <me@dignifiedquire.com>
+Date:   Tue Mar 9 15:52:29 2021 +0100
+
+    update Cargo.toml urls to zkcrypto
+
+commit dc303be5d9cd31cae82ce8ea3defb6f4261bd6f6
+Merge: d8f3f4a 1127a64
+Author: ebfull <ewillbefull@gmail.com>
+Date:   Tue Jan 5 16:25:24 2021 -0700
+
+    Merge pull request #51 from zkcrypto/release-0.9
+    
+    Release 0.9
+
+commit 1127a648619f0d5146aa29b09c7b7b9794d9cb69
+Author: Sean Bowe <ewillbefull@gmail.com>
+Date:   Tue Jan 5 16:15:31 2021 -0700
+
+    Release 0.9
+
+commit d8f3f4ae5085918f2221eb1e3f8739123d970c15
+Merge: 530e55c 539ee3f
+Author: ebfull <ewillbefull@gmail.com>
+Date:   Tue Jan 5 16:05:10 2021 -0700
+
+    Merge pull request #40 from tarcieri/bitvec-reexports-and-aliases
+    
+    Alias/re-export bitvec types in public API
+
+commit 530e55c2dfb159766c1f7968aa23d2f30a2f0db0
+Merge: bcf5a2d 368de28
+Author: ebfull <ewillbefull@gmail.com>
+Date:   Tue Jan 5 16:00:10 2021 -0700
+
+    Merge pull request #41 from tarcieri/forbid-unsafe
+    
+    Add `#![forbid(unsafe_code)] attribute
+
+commit bcf5a2db4b05deeebbe48dbb6c13c7d4d8dae456
+Merge: 684ba19 8a5080e
+Author: ebfull <ewillbefull@gmail.com>
+Date:   Tue Jan 5 15:59:42 2021 -0700
+
+    Merge pull request #50 from oxidecomputer/bitvec_bump
+    
+    Bump bitvec version to 0.20.0
+
+commit 684ba19e689852efd798bfd5bdf3c1a5eca235e2
+Merge: 3519254 6dbb0a1
+Author: ebfull <ewillbefull@gmail.com>
+Date:   Tue Jan 5 15:59:32 2021 -0700
+
+    Merge pull request #49 from tarcieri/rand_core/v0.6
+    
+    Bump `rand_core` dependency to v0.6
+
+commit 35192549154e0a3ce17ef79446d78650ea24303d
+Merge: dcdc2ad 9b740e6
+Author: ebfull <ewillbefull@gmail.com>
+Date:   Tue Jan 5 15:59:20 2021 -0700
+
+    Merge pull request #43 from tarcieri/remove-from-bounds-on-primefield-repr
+    
+    Remove From<Self> bounds on PrimeField::Repr
+
+commit 8a5080efae830d2f7e4c32d3ff8d149f60624984
+Author: Laura Abbott <laura@oxide.computer>
+Date:   Tue Dec 22 10:50:38 2020 -0500
+
+    Bump bitvec version to 0.20.0
+    
+    This lets ff build on armv8m
+
+commit 6dbb0a190cdb81a5ae918e44179ce4277366e1a6
+Author: Tony Arcieri <bascule@gmail.com>
+Date:   Sat Dec 19 09:00:02 2020 -0800
+
+    Bump `rand_core` dependency to v0.6
+    
+    Closes #48
+
+commit 9b740e63962e91862dbfbfc57ee63101dd3a652a
+Author: Tony Arcieri <bascule@gmail.com>
+Date:   Thu Sep 10 13:57:37 2020 -0700
+
+    Remove From<Self> bounds on PrimeField::Repr
+    
+    Removes the `From<Self>` and `From<&Self>` bounds on
+    `PrimeField::Repr`, since this conversion is still possible via the
+    `PrimeField::to_repr` method.
+    
+    Motivation: I'm writing code which is generic over elliptic curves, but
+    uses the same (generic) type as `PrimeField::Repr`.
+    
+    Unfortunately I'm getting a bit hung up on this bound. I can't write an
+    associated type with a `PrimeField::Repr` bound like:
+    
+        type Scalar: ff::PrimeField<Repr = FieldBytes>
+    
+    ...without including a "viral" where bound like:
+    
+        where FieldBytes: From<C::Scalar> + for<'r> From<&'r C::Scalar>
+    
+    ...in the case where I'm using a type I haven't defined myself
+    (`FieldBytes` is a type alias for a byte array).
+    
+    I can make `FieldBytes` into a newtype rather than a type alias, and
+    then add generic implementations of `From` that look like this:
+    
+        impl<F> From<F> for FieldBytes
+        where
+            F: PrimeField<Repr = FieldBytes>
+        {
+            fn from(field: F) -> FieldBytes {
+               field.to_repr()
+            }
+        }
+    
+    (sidebar: that may have a circular trait dependency even)
+    
+    ...but really it seems like the `PrimeField::to_repr` method
+    accomplishes the same things as the `From` bounds.
+    
+    Another problem with `From` bounds is they aren't satisifed by `Into`:
+    
+        type Scalar: ff::PrimeField<Repr = FieldBytes> + Into<FieldBytes>
+    
+    Per the `Into` docs:
+    
+    https://doc.rust-lang.org/std/convert/trait.Into.html
+    
+    > Prefer using Into over From when specifying trait bounds on a generic
+    > function to ensure that types that only implement Into can be used as
+    > well.
+
+commit 368de28837bb37aa3f33ea70fd3cb6a277253f8e
+Author: Tony Arcieri <bascule@gmail.com>
+Date:   Wed Sep 9 00:31:29 2020 -0700
+
+    Add `#![forbid(unsafe_code)] attribute
+    
+    This crate's one liner is "`ff` is a finite field library written in
+    pure Rust, with no `unsafe{}` code."
+    
+    This attribute commits to that.
+
+commit 539ee3f2ec8166c901eede94291fedf628e01f60
+Author: Tony Arcieri <bascule@gmail.com>
+Date:   Tue Sep 8 17:40:59 2020 -0700
+
+    Alias/reexport bitvec types in public API
+    
+    This is a non-semver-breaking change to expose the types from `bitvec`
+    which are used as part of the public API.
+    
+    Concretely:
+    
+    - Re-exports the `bitvec::view::BitView` trait, which is used as a bound
+      (e.g. by `PrimeField`)
+    - Adds a `FieldBits<V>` type alias for `BitArray<Lsb0, Self::ReprBits>`,
+      which is the return type of `PrimeField::to_le_bits`/`::char_le_bits`
+
+commit dcdc2ad3ae1ff50ea689f76bbb667d575cf2a3ff
+Merge: 303b79d a10be1f
+Author: ebfull <ewillbefull@gmail.com>
+Date:   Tue Sep 8 15:26:02 2020 -0600
+
+    Merge pull request #39 from zkcrypto/release-0.8.0
+    
+    Release 0.8.0
+
+commit a10be1f773a0aeee6ea492513eb8f454eaeb7f89
+Author: Jack Grigg <thestr4d@gmail.com>
+Date:   Tue Sep 8 22:22:10 2020 +0100
+
+    ff 0.8.0
+
+commit 303b79d3606099c54fa3f97420de83afc68ba7bd
+Merge: c5d50ad 31e9b22
+Author: ebfull <ewillbefull@gmail.com>
+Date:   Tue Sep 8 15:20:55 2020 -0600
+
+    Merge pull request #38 from zkcrypto/remove-display-bound
+    
+    Remove fmt::Display bound on Field
+
+commit 31e9b2263ed8f6f337be42976df243ea58dd2f51
+Author: Jack Grigg <thestr4d@gmail.com>
+Date:   Tue Sep 8 22:17:40 2020 +0100
+
+    Remove fmt::Display bound on Field
+    
+    Closes zkcrypto/ff#37.
+
+commit c5d50ad844fa596b9f46bbe880c9c4e42846bfad
+Merge: 4981b13 40de024
+Author: ebfull <ewillbefull@gmail.com>
+Date:   Tue Sep 8 15:12:47 2020 -0600
+
+    Merge pull request #36 from zkcrypto/primefield-docs
+    
+    Improve documentation of PrimeField constants
+
+commit 4981b13efd6906f15d910d6a20938485e18b0058
+Merge: 521ab09 24793fa
+Author: ebfull <ewillbefull@gmail.com>
+Date:   Tue Sep 8 15:11:27 2020 -0600
+
+    Merge pull request #35 from zkcrypto/field-cube
+    
+    Add Field::cube method with provided implementation
+
+commit 521ab095427b9e8284fae6b9a810aa638a8364c9
+Merge: 1bfb6c3 67eaff2
+Author: ebfull <ewillbefull@gmail.com>
+Date:   Tue Sep 8 15:10:39 2020 -0600
+
+    Merge pull request #34 from zkcrypto/impl-rngcore
+    
+    Switch to Field::random(rng: impl RngCore) -> Self
+
+commit 40de0249c2919ce15e8783eefc140d5941aa5fd7
+Author: Jack Grigg <thestr4d@gmail.com>
+Date:   Tue Sep 8 18:24:14 2020 +0100
+
+    Document constraints on the multiplicative generator
+
+commit 412480a8540343492472c48dd2d7f0c4eae3aa45
+Author: Jack Grigg <thestr4d@gmail.com>
+Date:   Sun Sep 6 20:30:24 2020 +0100
+
+    Improve documentation of PrimeField constants
+
+commit 67eaff2026b5b5c525e8fb13c94af841f8501a7c
+Author: Jack Grigg <thestr4d@gmail.com>
+Date:   Fri Sep 4 12:03:31 2020 +0100
+
+    Switch to Field::random(rng: impl RngCore) -> Self
+    
+    This aligns the ff::Field::random API with the group::Group::random API.
+
+commit 24793fa57009aed9193610501ff8c0b49864a9e0
+Author: Jack Grigg <thestr4d@gmail.com>
+Date:   Fri Sep 4 12:04:55 2020 +0100
+
+    Add Field::cube method with provided implementation
+    
+    Closes zkcrypto/ff#31.
+
+commit 1bfb6c3e21993a63f937ddcaeda59e9b925088f8
+Merge: dd5a520 2ea9f30
+Author: ebfull <ewillbefull@gmail.com>
+Date:   Fri Sep 4 04:54:35 2020 -0600
+
+    Merge pull request #30 from zkcrypto/bitvec
+    
+    Migrate to the bitvec crate for bit iterators
+
+commit dd5a5204157453763ef7f1164497b863652d5f16
+Merge: b3053b5 981f44c
+Author: ebfull <ewillbefull@gmail.com>
+Date:   Fri Sep 4 04:52:46 2020 -0600
+
+    Merge pull request #8 from str4d/import-fixes
+    
+    ff_derive: Use canonical paths for structs and traits
+
+commit 981f44cb2963fb7bf821c3953100e0ceb17f3b48
+Author: Jack Grigg <thestr4d@gmail.com>
+Date:   Fri Sep 4 01:34:43 2020 +0100
+
+    ff_derive: Import necessary traits inside derived functions
+
+commit 30c7fd8194cecfc4382244fece253dc65e66c19f
+Author: Jack Grigg <jack@z.cash>
+Date:   Sat Jul 7 21:55:16 2018 +0100
+
+    Remove imports from the PrimeField macro test so it fails
+
+commit 2ea9f309fb6e92ffa6ef3b12e38ebdf68daff040
+Author: Jack Grigg <thestr4d@gmail.com>
+Date:   Thu Sep 3 19:57:48 2020 +0100
+
+    Remove PrimeField::char
+    
+    The field characteristic is not a valid field element, and we only ever
+    want to operate over its bits, which PrimeField::char_le_bits exposes.
+
+commit e8c1529db38a7b1ca443d81a85cb2413c8eb36de
+Author: Jack Grigg <thestr4d@gmail.com>
+Date:   Wed Sep 2 16:36:08 2020 +0100
+
+    Add Send + Sync bounds to PrimeField::ReprBits
+    
+    This is necessary to use the output of PrimeField::to_le_bits across
+    threads, such as in a multiexp implementation.
+
+commit 34c32a736f8c8104d9207d5b215369cfd31f2af4
+Author: Jack Grigg <thestr4d@gmail.com>
+Date:   Wed Sep 2 12:57:37 2020 +0100
+
+    Remove Endianness trait and PrimeField::ReprEndianness
+    
+    This was an awkward attempt to enable generic access to a specific
+    encoding endianness, in order to operate generically over the bits of a
+    field element. Now that we have PrimeField::to_le_bits, this associated
+    type (as well as the default dependency on the byteorder crate) is no
+    longer necessary.
+
+commit f69f8d63932510aeda94c34af18ef138b8179048
+Author: Jack Grigg <thestr4d@gmail.com>
+Date:   Wed Sep 2 12:45:46 2020 +0100
+
+    Remove BitIterator
+    
+    This was an odd interface, that wrapped a little-endian byte encoding
+    and returned a big-endian bit stream. Its only use was for obtaining an
+    iterator over the bits of a PrimeField element, and users now have the
+    PrimeField::to_le_bits API (from which either endianness can be
+    obtained).
+
+commit 77f7907c7eb980182cc752125626bf801d1da727
+Author: Jack Grigg <thestr4d@gmail.com>
+Date:   Tue Sep 1 22:16:27 2020 +0100
+
+    Add PrimeField::{to_le_bits, char_le_bits}
+    
+    The PrimeField::ReprBits associated type is used to specify the backing
+    array used by bitvec's BitArray struct. Once const-generics stabilise,
+    the changes to BitArray will enable these APIs to return a type of the
+    form BitArray<Lsb0, Self::BitStore, Self::NUM_BITS>.
+    
+    We could add big-endian APIs later, but with the current API,
+    PrimeField::to_le_bits().into_repr().rev() will iterate over the bits in
+    big-endian order.
+    
+    The MSRV is now 1.44.0, matching the bitvec crate.
+
+commit b3053b507bb7b1b30b028a742e51f01a315a7dc5
+Merge: a7aad5f 17d0fa8
+Author: str4d <thestr4d@gmail.com>
+Date:   Thu Sep 3 01:33:20 2020 +1200
+
+    Merge pull request #29 from zkcrypto/test-ff_derive
+    
+    Test ff_derive crate
+
+commit 17d0fa80e0ea4606e626cd9445ee813a360c72a6
+Author: Jack Grigg <thestr4d@gmail.com>
+Date:   Wed Sep 2 12:25:43 2020 +0100
+
+    cargo fmt
+
+commit 0f94370eda77eabf0a593bb55b2ba4c24de60c1f
+Author: Jack Grigg <thestr4d@gmail.com>
+Date:   Wed Sep 2 12:23:02 2020 +0100
+
+    Add CI workflow
+
+commit 1b7be3806664d352ff15bd222e566798aed309bb
+Author: Jack Grigg <thestr4d@gmail.com>
+Date:   Wed Sep 2 12:21:26 2020 +0100
+
+    Update README
+
+commit ef682b5f3b89d713afc5656a63b76297eb2fc324
+Author: Jack Grigg <thestr4d@gmail.com>
+Date:   Wed Sep 2 12:18:30 2020 +0100
+
+    Add a test that exercises the ff_derive procedural macros
+
+commit a7aad5f1f6fbd21dfdaaffcc5b7b5930d8a19cb0
+Merge: 01d09e8 d52143e
+Author: str4d <thestr4d@gmail.com>
+Date:   Wed Aug 26 07:24:45 2020 +1200
+
+    Merge pull request #28 from zkcrypto/release-0.7.0
+    
+    Release 0.7.0
+
+commit d52143e992c657cf1966bcfc6380863a66128c4c
+Author: Jack Grigg <jack@z.cash>
+Date:   Sat Aug 22 11:31:01 2020 +0100
+
+    ff 0.7.0
+
+commit 8ea6c8b2827d52495daa506932e8d344ee29cca3
+Author: Jack Grigg <jack@z.cash>
+Date:   Sat Aug 15 00:40:08 2020 +0100
+
+    ff_derive: addchain 0.2
+
+commit fa3de0e204c4f461e67710a33f2ee30c33b0ecb3
+Author: Jack Grigg <jack@z.cash>
+Date:   Sat May 30 00:49:44 2020 +1200
+
+    group: Separate prime and cofactor traits into modules
+    
+    Instead of having the Group crate hold a Subgroup associated type (and
+    thus needing to define the subgroup of a prime-order group as itself),
+    we specify two separate sets of traits for prime-order groups and ones
+    with a cofactor.
+    
+    Protocol implementors can either restrict their implementations to only
+    work with PrimeGroup, or can explicitly choose to support CofactorGroup
+    and then explicitly handle the subgroup edge cases with e.g.
+    CofactorGroup::mul_by_cofactor (which would be a no-op for PrimeGroup).
+    
+    Protocol implementors can also choose to specialise to elliptic curves
+    if they want to leverage an affine representation and mixed addition in
+    their protocol for efficiency, or they can ignore those traits and stick
+    with the simpler group-focused traits.
+
+commit 318b8d52df135c1351f8fe071ff194796a9d9cd8
+Author: Jack Grigg <jack@z.cash>
+Date:   Sat May 30 15:18:25 2020 +1200
+
+    ff: Remove ScalarEngine
+
+commit 19863c2e7047c47ba44e4da7b6b597fa98bdb38b
+Author: Jack Grigg <jack@z.cash>
+Date:   Fri Apr 24 14:32:44 2020 +1200
+
+    Remove explicit std::marker from Sized bound
+    
+    Sized is always part of the prelude, and binding on std causes
+    compilation issues for no-std crates.
+
+commit 2fbb0484bb7b982e86881f49e82fbce74f72da6c
+Author: Jack Grigg <jack@z.cash>
+Date:   Sat May 2 18:55:13 2020 +1200
+
+    ff: Rename PrimeField::into_repr -> PrimeField::to_repr
+
+commit 65eaf473d6918257f86bcd8058acfd70184f47cd
+Author: Jack Grigg <jack@z.cash>
+Date:   Sat May 2 18:25:26 2020 +1200
+
+    ff_derive: Generate modulus representation with correct endianness
+    
+    Now that PrimeField::ReprEndianness exists, users can obtain a
+    known-endianness representation from the output of PrimeField::char
+    (which is a PrimeField::Repr, and should return a representation with
+    the same endianness as PrimeField::into_repr).
+
+commit 015c9e1573d95d8ca0f712a475a27d129683f706
+Author: Jack Grigg <jack@z.cash>
+Date:   Sat May 2 17:57:19 2020 +1200
+
+    ff: Move pow_vartime back into Field trait
+    
+    The only places we don't use constant u64 limbs, we use PrimeField::char
+    instead (except in a single test where we use a field element).
+
+commit 9dab8b2fda33108c6c16870a88da1819a1bbd52b
+Author: Jack Grigg <jack@z.cash>
+Date:   Sat May 2 15:48:51 2020 +1200
+
+    ff: Remove Ord bound from PrimeField
+    
+    ff_derive still implements Ord and PartialOrd for the fields it
+    implements, because pairing::bls12_381 internally assumes that those are
+    implemented. Once we delete that implementation, we will remove the Ord
+    and PartialOrd implementations from ff_derive.
+
+commit e6030c4819637e0be82131fb28c33b5d1ed52790
+Author: Jack Grigg <jack@z.cash>
+Date:   Fri May 1 14:20:35 2020 +1200
+
+    ff: Add PrimeField::ReprEndianness associated type
+    
+    This enables generic code to reliably operate on the bits of an encoded
+    field element, by converting them to and from a known (little)
+    endianness.
+    
+    The BitAnd and Shr bounds on PrimeField are now removed, as users can
+    perform these operations themselves as needed.
+
+commit a8be9d53ae2518cf0c1c9ab89dea2bd18101b4ac
+Author: Jack Grigg <jack@z.cash>
+Date:   Fri May 1 14:01:43 2020 +1200
+
+    ff: Remove frobenius_map from Field trait
+    
+    It is only used internally in the bls12_381 crate, and field extensions
+    aren't exposed anywhere in the Zcash stack.
+
+commit 5b78612ff75c89b70950bdd765c683ff9781262d
+Author: Jack Grigg <jack@z.cash>
+Date:   Fri May 1 13:48:30 2020 +1200
+
+    ff: Remove SqrtField trait
+    
+    The sqrt() function is now part of the Field trait. ff_derive returns an
+    error on fields for which it does not support generating a square root
+    function.
+    
+    Note that Fq6 and Fq12 in pairing::bls12_381 leave the function
+    unimplemented. They will be dropped once the migration to the bls12_381
+    crate is complete. The equivalent structs in that crate are not exposed.
+
+commit 01d09e88b939885d1e08a06fe52d91ab6bb4e701
+Merge: e3e0ea6 a18bd3a
+Author: str4d <thestr4d@gmail.com>
+Date:   Thu Apr 30 15:18:25 2020 +1200
+
+    Merge pull request #23 from zkcrypto/ff-0.6.0
+    
+    ff 0.6.0
+
+commit e3e0ea6e23eed38e0d16cb23b38fcef1caa66c89
+Merge: ddff465 d257a1e
+Author: str4d <thestr4d@gmail.com>
+Date:   Fri Apr 24 14:56:17 2020 +1200
+
+    Merge pull request #21 from zkcrypto/from-downstream
+    
+    Remove unneeded extern crate
+
+commit e10738923c9e543155bd276575d6e6d2e2498fe7
+Author: Jack Grigg <jack@z.cash>
+Date:   Thu Apr 23 17:32:04 2020 +1200
+
+    ff: Remove PrimeFieldRepr trait
+    
+    The ff::PrimeField::Repr associated type now has the minimal necessary
+    bounds, which can be satisfied by a newtype around a byte array.
+
+commit 5f87ddda44ba3fa71ddbb666c5cc9dcd3d8ff2a3
+Author: Jack Grigg <jack@z.cash>
+Date:   Thu Apr 23 16:30:36 2020 +1200
+
+    ff: Add Ord bound to PrimeField
+
+commit 88b87dd1e4bc7554f3c119a127e652d4118dedd8
+Author: Jack Grigg <jack@z.cash>
+Date:   Wed Apr 22 10:45:51 2020 +1200
+
+    ff: PrimeField: BitAnd<u64, Output = u64> + Shr<u32, Output = Self>
+
+commit 32098e41174bebac2c3a5a215a7d2193e0f4c785
+Author: Jack Grigg <jack@z.cash>
+Date:   Tue Apr 21 19:05:19 2020 +1200
+
+    ff: PrimeField::{is_even, is_odd}
+
+commit 83af35381336b45941bc625246e5b6f598fdfd4b
+Author: Jack Grigg <jack@z.cash>
+Date:   Sat Mar 28 12:02:32 2020 +1300
+
+    ff: Rework BitIterator to work with both u8 and u64 limb sizes
+    
+    This enables BitIterator to be used with both the byte encoding and limb
+    representation of scalars.
+
+commit ad0d73ff1cd1f7c1f05acd67d0b7d4e650e591b6
+Author: Jack Grigg <jack@z.cash>
+Date:   Fri Mar 27 23:19:58 2020 +1300
+
+    ff: Add PrimeField: From<u64> constraint
+
+commit b36324f4bafb1b8c36e2b58adac658ac966e5f20
+Author: Jack Grigg <jack@z.cash>
+Date:   Fri Mar 27 22:35:55 2020 +1300
+
+    ff: Move pow_vartime into a trait that is generic over the limb size
+    
+    The trait is implemented by default for u8 and u64, allowing pow_vartime
+    to be used with both the byte encoding and limb representation of field
+    elements.
+
+commit 13a62320d5284bef9f2b172c3f5b03a574388385
+Author: Jack Grigg <jack@z.cash>
+Date:   Thu Dec 19 22:10:29 2019 -0600
+
+    Generate addition chains inside Field::invert and SqrtField::sqrt
+
+commit 8a202d8d0231f6db639caac131e5764221f76a94
+Author: Jack Grigg <jack@z.cash>
+Date:   Thu Dec 19 22:10:10 2019 -0600
+
+    Procedural macro for fixed-exponent variable-base modular exponentiation
+    
+    Uses the addchain crate to obtain an addition chain for the exponent,
+    and then generates the corresponding constant-time square-and-multiply
+    algorithm.
+
+commit 214db3b59854306224a62e9b792c9f9160feeb59
+Merge: a18bd3a 40758ce
+Author: Jack Grigg <jack@z.cash>
+Date:   Sat Mar 14 10:36:58 2020 +1300
+
+    Merge branch 'develop'
+
+commit a18bd3abd53a3011296bd9e72be80c4d40ea1406
+Author: Sean Bowe <ewillbefull@gmail.com>
+Date:   Thu Mar 12 15:59:19 2020 -0600
+
+    Version bump of all crates (except librustzcash)
+
+commit 6be12c4b0f99819e9837990415f909c5c6cf21b3
+Merge: 3fb66f2 ddff465
+Author: Sean Bowe <ewillbefull@gmail.com>
+Date:   Tue Mar 3 17:44:28 2020 -0700
+
+    Merge commit 'd7f78db121ee6f720e97401ded0c9c597d1a4857' into depends-updates-2
+
+commit d257a1edaa8509420c0787896bfd39d5b4124d3d
+Merge: 3fb66f2 ddff465
+Author: Sean Bowe <ewillbefull@gmail.com>
+Date:   Tue Mar 3 17:13:20 2020 -0700
+
+    Merge commit 'ddff4658ddd7496bb29cc636c391b7aaaca24673' into depends-updates
+
+commit 40758cea81db9f8c485148cc49244bb4169f2a84
+Author: Jack Grigg <jack@z.cash>
+Date:   Tue Jan 14 21:58:22 2020 -0500
+
+    ff_derive: Fix a clippy issue in generated code
+    
+    This shows up as a clippy warning in the pairing crate.
+
+commit 75dde063e785c57147a1a05496479559935f1d8c
+Author: Jack Grigg <jack@z.cash>
+Date:   Tue Jan 14 21:35:41 2020 -0500
+
+    ff: Use readable literals
+
+commit 56d29eb2cf41963e3fe72061b327969f43997c3b
+Author: Jack Grigg <jack@z.cash>
+Date:   Tue Jan 14 21:31:09 2020 -0500
+
+    ff: Make byteorder an optional dependency under the std feature flag
+    
+    Building ff with the std feature flag was previously broken because it
+    required importing byteorder functionality behind the byteorder/std
+    feature flag. We don't use byteorder inside ff in no_std mode, so we can
+    just make it optional.
+
+commit 414285bef4b6973c83d20c18c3eb4449b64c0b8b
+Author: Jack Grigg <jack@z.cash>
+Date:   Tue Jan 14 21:29:38 2020 -0500
+
+    ff_derive: Fix various clippy issues
+
+commit ddff4658ddd7496bb29cc636c391b7aaaca24673
+Author: Sean Bowe <ewillbefull@gmail.com>
+Date:   Wed Jan 8 11:06:48 2020 -0700
+
+    Bump version and dependency on ff_derive
+
+commit 25d11d62e3d15d1033326cd7a13f90be70d010a8
+Author: Sean Bowe <ewillbefull@gmail.com>
+Date:   Wed Jan 8 11:03:38 2020 -0700
+
+    Bump version
+
+commit 95e2723f11ca6451b71c2c7d73cb2167e8c00210
+Author: Sean Bowe <ewillbefull@gmail.com>
+Date:   Sat Dec 21 13:35:47 2019 -0700
+
+    Bump version to 0.5.1
+
+commit f76872ad80f54bddd914c9a4ae2b09b4ac7922d6
+Author: Weiliang Li <to.be.impressive@gmail.com>
+Date:   Sun Dec 22 00:39:49 2019 +0900
+
+    Add ?Sized to RngCore trait bounds (#14)
+    
+    Closes #13.
+
+commit 0273cdf50a85e61544ae7ca29f7c500fc79d3864
+Author: Jack Grigg <jack@z.cash>
+Date:   Thu Dec 19 08:22:06 2019 -0600
+
+    Constant-time field inversion in ff_derive using Field::pow_vartime
+    
+    This is around 2.5-3x slower than the non-constant-time inversion. We
+    can regain some of this speed later by dynamically generating addition
+    chains.
+
+commit 10ddc2e5439647f0d854c442e46dd13d420816b0
+Author: Jack Grigg <jack@z.cash>
+Date:   Wed Dec 18 17:53:39 2019 -0600
+
+    Pass modulus to prime_field_constants_and_sqrt by reference
+
+commit 07aad2116e294559bf2572fd6813b71792477f71
+Author: Jack Grigg <jack@z.cash>
+Date:   Wed May 15 20:43:24 2019 +0100
+
+    no_std support for ff crate
+
+commit b6665cbcfb0bdedcd52e4a0d63b32ce67731116e
+Author: Jack Grigg <jack@z.cash>
+Date:   Wed May 15 11:24:00 2019 +0100
+
+    Improve Field::pow API and impl
+    
+    Renamed to Field::pow_vartime to indicate it is still variable time with
+    respect to the exponent.
+
+commit c3f7ea78c0d5d497e576aa1d76a416a16c6fd60f
+Author: Jack Grigg <jack@z.cash>
+Date:   Wed May 15 10:35:14 2019 +0100
+
+    Constant-time field square root
+    
+    WARNING: THIS IS NOT FULLY CONSTANT TIME YET!
+    
+    This will be fixed once we migrate to the jubjub and bls12_381 crates.
+
+commit 54f766e8aa48e8f67a58a2d839c99253b2ba45e7
+Author: Jack Grigg <jack@z.cash>
+Date:   Tue May 14 14:18:37 2019 +0100
+
+    Constant-time field inversion
+    
+    WARNING: THIS IS NOT ACTUALLY CONSTANT TIME YET!
+    
+    The jubjub and bls12_381 crates will replace our constant-time usages,
+    but we NEED to fix ff_derive because other users will expect it to
+    implement the Field trait correctly.
+
+commit 2edc8a259145d85b30470013021076e9ae6af2a7
+Author: Jack Grigg <jack@z.cash>
+Date:   Thu Dec 12 23:15:48 2019 +0000
+
+    impl ConditionallySelectable for Field
+
+commit 83d8124aa7214fc3d203b6b89ef2468ff080b435
+Author: Jack Grigg <jack@z.cash>
+Date:   Thu Dec 12 23:09:28 2019 +0000
+
+    Make Field::square take &self and return Self
+
+commit 3d07df162cc079588173a965b12c70c375e54396
+Author: Jack Grigg <jack@z.cash>
+Date:   Thu Dec 12 22:59:18 2019 +0000
+
+    Make Field::double take &self and return Self
+
+commit fff21a45e01ac4ac31fc9de00bde9b0b776d03d0
+Author: Jack Grigg <jack@z.cash>
+Date:   Thu Dec 12 22:52:17 2019 +0000
+
+    Move from Field::negate to Neg operator
+
+commit 89d1ca251b220d8453be82847e1e1b96f2036cd2
+Author: Jack Grigg <jack@z.cash>
+Date:   Thu Dec 12 20:57:06 2019 +0000
+
+    Move Field operations to operator-backed traits
+    
+    The ff_derive, pairing, zcash_primitives::jubjub, and bellman dummy_engine
+    changes are minimally implemented on top of the existing *_assign()
+    functions.
+
+commit 3fb66f2bf1955098b51af35951a662d1a3c50763
+Merge: 09a32b1 10048ea
+Author: str4d <jack@z.cash>
+Date:   Thu Oct 31 17:12:26 2019 +0000
+
+    Merge pull request #135 from NikVolf/extern-purge
+    
+    Remove unneeded "extern crate"
+
+commit 10048ead947adad944fe6116fa6b4c69662bc123
+Author: NikVolf <nikvolf@gmail.com>
+Date:   Tue Oct 8 16:06:02 2019 +0300
+
+    Remove unneeded extern crate
+
+commit 09a32b1a4851e0e1ac2cc24ccd5cebab6b1649b3
+Author: Jack Grigg <jack@z.cash>
+Date:   Tue Oct 8 16:00:47 2019 +1300
+
+    ff 0.5.0
+
+commit 32543abf57f35cfac99c7b2fc4326ae84db035c6
+Author: Jack Grigg <jack@z.cash>
+Date:   Tue Sep 24 10:54:15 2019 +0100
+
+    Crate docs
+
+commit 22031dc4a5de3008e57a2bc5ea47d3feeae42f0e
+Author: Jack Grigg <jack@z.cash>
+Date:   Tue Sep 24 10:53:52 2019 +0100
+
+    Update READMEs
+
+commit 658fe6d08945d7fb4dad8c727ddfe08d7f0e86a2
+Author: Jack Grigg <jack@z.cash>
+Date:   Tue Sep 24 10:31:04 2019 +0100
+
+    CI: Check intra-doc links
+    
+    Credit: https://twitter.com/tomaka17/status/1176017851410526208
+
+commit 35f50263065b8c6dbbfc6c2a9fad58e00bc4665b
+Author: Jack Grigg <jack@z.cash>
+Date:   Fri Aug 2 14:57:34 2019 +0100
+
+    Add READMEs to Cargo.toml files
+    
+    This will cause crates.io to render each crate's README as its
+    information page.
+
+commit 6804225912165b19330ebd0133c6f2dd83f024b2
+Author: Jack Grigg <jack@z.cash>
+Date:   Fri Sep 6 19:03:12 2019 -0400
+
+    Migrate ff_derive to proc-macro2 1.0
+
+commit b9a79cee14d4414c0e915c816fc2c113841de2a8
+Author: Eirik Ogilvie-Wigley <eirik@z.cash>
+Date:   Tue Aug 20 22:22:03 2019 -0600
+
+    cargo fmt
+
+commit 82574c25a6c4f2f5db58bd0da3e02177c2255acf
+Author: Eirik Ogilvie-Wigley <eirik@z.cash>
+Date:   Tue Aug 20 22:01:46 2019 -0600
+
+    cargo fix --edition-idioms for ff
+
+commit 3b0cf72f42313e2dfd4e7669d5b0c154e87d277a
+Author: Eirik Ogilvie-Wigley <eirik@z.cash>
+Date:   Tue Aug 20 18:31:20 2019 -0600
+
+    Add edition = 2018
+
+commit 8a2b51bf361e179dac614e19cd6c383b2e972d7c
+Author: Eirik Ogilvie-Wigley <eirik@z.cash>
+Date:   Tue Aug 20 18:24:47 2019 -0600
+
+    Replace try! macro
+
+commit 40fc9baac5d2f1e5a84bdb645defb60a9625eafb
+Author: Eirik Ogilvie-Wigley <eirik@z.cash>
+Date:   Fri Aug 16 22:52:54 2019 -0600
+
+    cargo fix --edition for ff
+
+commit 22c67f3317612ec31ff2eb0304452cfe327f4bc1
+Author: Eirik Ogilvie-Wigley <eirik@z.cash>
+Date:   Thu Aug 15 10:41:48 2019 -0600
+
+    cargo fmt
+
+commit 312141c7fca54a1340ce7af39675f18067459280
+Author: str4d <thestr4d@gmail.com>
+Date:   Fri Jul 26 19:43:42 2019 +0100
+
+    Clarify masking of bits in Field::random impls
+    
+    Co-Authored-By: Daira Hopwood <daira@jacaranda.org>
+
+commit 89a68e121d7646c99d094d62bf58b93b9ebc9ef2
+Author: Jack Grigg <jack@z.cash>
+Date:   Sun Jul 14 12:19:01 2019 +0100
+
+    Migrate to rand 0.7
+
+commit 58415fba1713abdcd46bcddae47c433b2f7b8b48
+Author: Jack Grigg <jack@z.cash>
+Date:   Fri Jul 12 23:51:35 2019 -0400
+
+    Migrate ff, group, pairing, and bellman to rand 0.6
+
+commit 8b6e6b15aec5c24c26aebd7e01c6c7217cb602e3
+Author: Jack Grigg <jack@z.cash>
+Date:   Wed Jul 10 18:35:05 2019 -0400
+
+    Migrate ff to rand_core 0.3 (used by rand 0.5)
+
+commit 661558e0c8a5e02e08dac6530d39b2e38919aa04
+Merge: 44b601b 526676e
+Author: ebfull <ewillbefull@gmail.com>
+Date:   Mon Jul 2 19:53:52 2018 -0600
+
+    Merge pull request #5 from str4d/more-updates
+    
+    More updates
+
+commit 526676ecfce49661fe18d0e1635fde331b8e150d
+Author: Jack Grigg <jack@z.cash>
+Date:   Mon Jul 2 23:07:41 2018 +0100
+
+    Bump version to 0.4.0
+
+commit 2067360930fbf07b74109fe776c4260766046816
+Author: Jack Grigg <jack@z.cash>
+Date:   Mon Jul 2 21:31:35 2018 +0100
+
+    Add ScalarEngine trait
+    
+    This is extracted from pairing's Engine trait.
+
+commit 0eb9f5040b8d24703392ba23798347a1163ce802
+Author: Jack Grigg <jack@z.cash>
+Date:   Mon Jul 2 21:19:20 2018 +0100
+
+    Remove u128-support feature and arithmetic
+    
+    Closes #2.
+
+commit 69ce66ae6cf43755e7fd5eea75f6945d0fa6ac2b
+Author: Jack Grigg <jack@z.cash>
+Date:   Mon Jul 2 21:08:24 2018 +0100
+
+    Place ff_derive re-exports behind a feature
+    
+    Part of #3.
+
+commit 002173e187ff5ce94a2a5e722300509fcf0ba363
+Author: Jack Grigg <jack@z.cash>
+Date:   Mon Jul 2 20:58:41 2018 +0100
+
+    Update README.md
+    
+    Closes #4.
+
+commit 44b601b0a9244fe062093cdc6d718301d9203d25
+Author: Sean Bowe <ewillbefull@gmail.com>
+Date:   Mon Jul 2 08:34:26 2018 -0600
+
+    Adjust versions
+
+commit 729138a31eff7c5805c848c982690ba95bd6f9f5
+Merge: c7252a4 91a8dc8
+Author: ebfull <ewillbefull@gmail.com>
+Date:   Mon Jul 2 08:28:36 2018 -0600
+
+    Merge pull request #1 from str4d/updates
+    
+    Update dependencies and traits
+
+commit 91a8dc8284a09c456b36da44ca7de36f8b50550d
+Author: Jack Grigg <jack@z.cash>
+Date:   Mon Jul 2 09:18:34 2018 +0100
+
+    Update rand crate
+
+commit 4c984595e51fd746f68bea5339c771f70bff3a8d
+Author: Jack Grigg <jack@z.cash>
+Date:   Mon Jul 2 06:54:59 2018 +0100
+
+    Add full paths for some manually-implemented derives
+    
+    This further reduces the difference between pairing's manual and derived
+    implementations.
+
+commit 623dbd0d74504d6b5d598ef83c654a1091670222
+Author: Jack Grigg <jack@z.cash>
+Date:   Sun Jul 1 22:49:10 2018 +0100
+
+    [MOVEONLY] Move generated code around slightly in ff_derive
+    
+    This reduces the differences in the generated code between the current
+    implementations of Fq and Fr in pairing, and their derived versions.
+
+commit b0b754ba040dd8086b75d44f5826b0649aa4db27
+Author: Jack Grigg <jack@z.cash>
+Date:   Sun Jul 1 22:43:22 2018 +0100
+
+    Return constants and sqrt impls separately for individual rendering
+
+commit 5a48059a14ec82371c61935869b001f1200936c2
+Author: Jack Grigg <jack@z.cash>
+Date:   Sun Jul 1 00:05:56 2018 -0400
+
+    Integrate changes to trait impls from pairing into ff_derive
+
+commit 29a9161981ff7eef49aacca5844ce1723e053403
+Author: Jack Grigg <jack@z.cash>
+Date:   Thu Jun 28 15:07:35 2018 -0400
+
+    Implement changes to traits in ff_derive
+
+commit 58cb06ee92432f6f447227bfbfa1973305b03ffc
+Author: Jack Grigg <jack@z.cash>
+Date:   Wed Jun 27 08:03:36 2018 -0400
+
+    Pull in trait changes from pairing
+
+commit 8201a3933f89560d7f5c434b5668e002f1abecaa
+Author: Jack Grigg <jack@z.cash>
+Date:   Wed Jun 27 07:53:31 2018 -0400
+
+    Pull in arith changes from pairing
+
+commit 1a3a2bec741c58717aa4338e048ec98631f71d9e
+Author: Jack Grigg <jack@z.cash>
+Date:   Wed Jun 27 07:37:25 2018 -0400
+
+    Update other ff_derive dependencies
+
+commit 428f4635557a9f773a63318fd1ff459f610e117a
+Author: Jack Grigg <jack@z.cash>
+Date:   Wed Jun 27 07:33:17 2018 -0400
+
+    Migrate ff_derive to syn 0.14 and quote 0.6
+
+commit 755fc7aba8e5b3a2d26591989a52e6f52a7e9333
+Author: Jack Grigg <jack@z.cash>
+Date:   Tue Jun 26 10:48:27 2018 -0400
+
+    cargo fmt
+
+commit c7252a43bff52b1477347594b0ee3b1f4429e717
+Author: Sean Bowe <ewillbefull@gmail.com>
+Date:   Tue Jun 27 10:35:14 2017 -0600
+
+    Update README/Cargo.toml with correct documentation links.
+
+commit 134b53e812d6c5d7601dff23e9a24ef30be89fb1
+Author: Sean Bowe <ewillbefull@gmail.com>
+Date:   Tue Jun 27 09:41:33 2017 -0600
+
+    Version bump.
+
+commit bbc7b44f88471669fcdc34b3dc2950ef410bde06
+Author: Sean Bowe <ewillbefull@gmail.com>
+Date:   Tue Jun 27 09:40:58 2017 -0600
+
+    Comments and slight refactoring.
+
+commit 02f503c74d5196e0259c9f94ce63b46347ffdac8
+Author: Sean Bowe <ewillbefull@gmail.com>
+Date:   Tue Jun 27 09:27:29 2017 -0600
+
+    Modify README.
+
+commit b1f392ac995ef60e6bdfcd50a6794f80669a8594
+Author: Sean Bowe <ewillbefull@gmail.com>
+Date:   Tue Jun 27 09:14:24 2017 -0600
+
+    Add multiplicative generator and other useful constants.
+
+commit 9aceb63e7e8e0380b2ed26d1c7ae8e1a5dd5a206
+Author: Sean Bowe <ewillbefull@gmail.com>
+Date:   Mon Jun 26 23:22:41 2017 -0600
+
+    Add Tonelli-Shanks sqrt for 1 mod 16 primes.
+
+commit bbbd397b80df647aa1f96c8dbc2a6049f83cbabc
+Author: Sean Bowe <ewillbefull@gmail.com>
+Date:   Mon Jun 26 14:42:47 2017 -0600
+
+    Add more efficient squaring implementation.
+
+commit e6ad371dd74ca2c454c88682a5eb1402b60d81b5
+Author: Sean Bowe <ewillbefull@gmail.com>
+Date:   Mon Jun 26 13:53:55 2017 -0600
+
+    Remove dead code.
+
+commit 03952704b70f5b1e374d94de2dfe51f0218dbd2b
+Author: Sean Bowe <ewillbefull@gmail.com>
+Date:   Mon Jun 26 12:07:23 2017 -0600
+
+    Absolute path to rand.
+
+commit 13a822f994e1d9c13218c79a3a2ba8fb4cc5cf68
+Author: Sean Bowe <ewillbefull@gmail.com>
+Date:   Mon Jun 26 11:47:35 2017 -0600
+
+    Add auto-derivation of prime fields, and modify the traits a little bit.
+
+commit e97f0df3dfbd538a7c2a266df9e9753cc6db1279
+Author: Sean Bowe <ewillbefull@gmail.com>
+Date:   Sun Jun 25 23:18:32 2017 -0600
+
+    Fix another comment.
+
+commit 6402b74741770ecc65ae4b1407ff695bf3a04ce3
+Author: Sean Bowe <ewillbefull@gmail.com>
+Date:   Sun Jun 25 23:16:08 2017 -0600
+
+    Fix comment.
+
+commit cb0c8f1e07e004a9ed89c464655f63b8b9bda9b2
+Author: Sean Bowe <ewillbefull@gmail.com>
+Date:   Sun Jun 25 23:13:56 2017 -0600
+
+    Fix description of `ff`.
+
+commit cf7d7e823b6f5b8e78ee87310b42ead716b7f14a
+Author: Sean Bowe <ewillbefull@gmail.com>
+Date:   Sun Jun 25 23:12:40 2017 -0600
+
+    Add more stuff to the Cargo.toml files.
+
+commit b11ea2db258b7e8a432866eba5f677e99fa4d747
+Author: Sean Bowe <ewillbefull@gmail.com>
+Date:   Sun Jun 25 23:09:43 2017 -0600
+
+    Initial commit.
